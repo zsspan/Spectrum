@@ -1,0 +1,10 @@
+{
+    "name": "Article Analyzer",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["scripting", "activeTab"],
+    "action": {
+      "default_popup": "src/popup/popup.html"
+    }
+}
+  

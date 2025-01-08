@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Political Bias Analyzer</title>
+    <script src="popup.js" defer></script>
+    <link rel="stylesheet" href="popup.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="header centre">
+      <img src="spectrum_s.png" alt="logo" class="logo">
+      <h1>Spectrum: Bias Analysis</h1>
+    </div>
+    <div class="content centre">
+      <div class="current-article">
+        <h2>Current Article</h2>
+        <p id="article-placeholder">No article loaded</p>
+        <p id="publisher-placeholder" class="hidden">No publisher loaded</p>
+      </div>
+      <button id="analyze-button">Start Analyzing</button>
+    </div>
+  </body>
+</html>
