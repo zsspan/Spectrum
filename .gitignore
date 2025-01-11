@@ -1,7 +1,4 @@
-data/Center Data
-data/Left Data
-data/Right Data
+data/text_data/*
 data/.ipynb_checkpoints
-data/preprocessed_data.csv
-data/political_articles.csv
-data/political_articles2.csv
+data/csvs/*.csv
+*/__pycache__/*

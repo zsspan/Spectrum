@@ -61,7 +61,7 @@ def predict(article_body):
     vectorized_article_dense = vectorized_article.toarray()
     prediction = model.predict(vectorized_article_dense)
 
-    return prediction
+    return str(prediction)
 
 @app.route("/current-article", methods=["POST"])
 def current_article():
@@ -89,9 +89,9 @@ def article_content():
     url = data.get("url")
 
     article_body = get_article_body(url)
-    print(predict(article_body))
+    prediction = predict(article_body)
     
-    return jsonify({'prediction': url})
+    return jsonify({'prediction': prediction})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
