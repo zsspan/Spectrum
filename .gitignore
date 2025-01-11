@@ -1,4 +1,5 @@
-data/text_data/*
-data/.ipynb_checkpoints/*
+data/text_data/**
+!data/text_data/*
+data/.ipynb_checkpoints/*.ipynb
 data/csvs/*.csv
 */__pycache__/*
