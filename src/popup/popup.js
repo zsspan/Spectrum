@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentTab = tabs[0];
       const url = currentTab.url;
 
-      fetch("http://localhost:5000/article-content", {
+      fetch("http://localhost:5000/article-parse", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
