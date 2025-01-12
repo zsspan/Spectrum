@@ -23,6 +23,8 @@ def current_article():
         return jsonify({"error": "URL is required"}), 400
 
     soup = get_soup_object(url)
+    if soup == "":
+        return jsonify({"error": "Invalid URL"}), 400
 
     h1_tag = soup.find('h1')
     title_tag = soup.find('title')
@@ -41,6 +43,7 @@ def current_article():
 def article_content():
     data = request.get_json()
     url = data.get("url")
+    print("url: ", url)
 
     article_body = get_article_body(url)
     prediction = predict(article_body)
