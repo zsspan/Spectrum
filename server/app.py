@@ -43,6 +43,7 @@ def current_article():
 def article_content():
     data = request.get_json()
     url = data.get("url")
+    print("url: ", url)
 
     article_body = get_article_body(url)
     prediction = predict(article_body)

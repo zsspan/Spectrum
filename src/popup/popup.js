@@ -1,6 +1,6 @@
 const articlePlaceholder = document.getElementById("article-placeholder");
 const publisherPlaceholder = document.getElementById("publisher-placeholder");
-const analyzeButton = document.getElementById("analyze-button");
+// const analyzeButton = document.getElementById("analyze-button");
 const predictButton = document.getElementById("predict-button");
 const prediction = document.getElementById("prediction");
 
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentTab = tabs[0];
       const url = currentTab.url;
 
-      fetch("http://localhost:5000/article-content", {
+      fetch("http://localhost:5000/article-parse", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
