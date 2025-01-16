@@ -3,30 +3,53 @@
   <head>
     <title>Political Bias Analyzer</title>
     <script src="popup.js" defer></script>
+    <script src="pages.js" defer></script>
+
     <link rel="stylesheet" href="popup.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="header centre">
-      <img src="spectrum_s.png" alt="logo" class="logo">
+      <img src="spectrum_s.png" alt="logo" class="logo" />
       <h1>Spectrum: Bias Analysis</h1>
     </div>
-    <div class="content centre">
+    <!-- main page here -->
+    <div id="main-content" class="content centre active">
       <div class="current-article">
         <h2>Current Article</h2>
         <p id="article-placeholder" class="sub-text">No article loaded</p>
-        <p id="publisher-placeholder" class="hidden sub-text">No publisher loaded</p>
+        <p id="publisher-placeholder" class="hidden sub-text">
+          No publisher loaded
+        </p>
       </div>
       <!-- <button id="analyze-button">Load Article</button> -->
-      <button id="predict-button">Predict</button>
-      
+      <button id="predict-button" class="panel-btn">Predict</button>
       <div class="current-article">
-        <p id="prediction" class="sub-text">prediction</p>
+        <p class="sub-text">Political Stance: <span id="prediction">_</span></p>
       </div>
+    </div>
 
+    <!-- article list page here -->
+    <div id="saved-articles-content" class="content centre hidden">
+      <h2>Saved Articles</h2>
+      <p class="sub-text">to be implemented</p>
+      <ul id="saved-articles-list"></ul>
+    </div>
+
+    <div class="navbar">
+      <button id="main-nav" class="nav-btn">
+        <i class="fas fa-home"></i> Home
+      </button>
+      <button id="saved-articles-nav" class="nav-btn">
+        <i class="fas fa-list"></i> List
+      </button>
     </div>
   </body>
 </html>
