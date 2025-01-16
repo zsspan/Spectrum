@@ -1,12 +1,13 @@
 body {
-    width: 330px;
+    width: 300px;
     height: 450px;
     margin: 0px;
     padding: 0px;
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
+    border: 0px;
+
 }
 
 .centre {
@@ -40,9 +41,10 @@ body {
 
 .content {
     border-top: 1px solid rgba(4, 4, 39, 0.2);
+    border-bottom: 1px solid rgba(4, 4, 39, 0.2);
     padding: 10px;
     height: 100%;
-    background: linear-gradient(210deg, #f8e1fb, #f4eef5, #ffffff);
+    background: linear-gradient(210deg, #f6d3fa, #f4eef5, #f1dcf4);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -57,15 +59,19 @@ body {
     border-radius: 4px;
 }
 
-button {
-    padding: 8px 20px;
-    /* background-color: #762c8c; */
-    color: white;
-    border: none;
-    border-radius: 4px;
+.panel-btn {
     cursor: pointer;
-    margin-bottom: 20px;
-    background: linear-gradient(to bottom, #762c8c, #5a206c);
+    border-radius: 4px;
+    color: white;
+
+}
+
+#main-content button {
+    padding: 8px 20px;
+
+    border: none;
+    margin-top: 20px;
+    background: linear-gradient(to bottom, #762c8c, #4c185c);
 }
 
 button:hover {
@@ -80,6 +86,7 @@ button:hover {
     border-radius: 5px;
     padding: 10px;
     text-align: left;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .current-article h2 {
@@ -90,16 +97,21 @@ button:hover {
 }
 
 
-
 #publisher-placeholder {
     font-weight: bold;
 }
 
 
-#predict-button{
+#predict-button {
     margin: 16px 0 0 0;
 }
-.sub-text{
+
+#prediction {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.sub-text {
     color: #777;
     margin: 0;
     font-size: 12px;
@@ -107,4 +119,31 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+.navbar {
+    height: 64px;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    background-color: #f4eef5;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar button {
+    all: unset;
+    color: #333;
+    margin: 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar button i {
+    font-size: 18px;
+    color: #666;
 }
