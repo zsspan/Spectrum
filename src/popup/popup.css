@@ -49,6 +49,21 @@ body {
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
+}
+
+.content::-webkit-scrollbar {
+    width: 4px;
+    background: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
 }
 
 #url {
@@ -63,15 +78,18 @@ body {
     cursor: pointer;
     border-radius: 4px;
     color: white;
-
-}
-
-#main-content button {
     padding: 8px 20px;
-
     border: none;
     margin-top: 20px;
     background: linear-gradient(to bottom, #762c8c, #4c185c);
+}
+
+.opt-btn {
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: transparent;
 }
 
 button:hover {
@@ -146,4 +164,28 @@ button:hover {
 .navbar button i {
     font-size: 18px;
     color: #666;
+}
+
+
+.notification {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.hidden {
+    display: none;
 }

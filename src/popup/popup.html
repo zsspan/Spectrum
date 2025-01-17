@@ -4,6 +4,7 @@
     <title>Political Bias Analyzer</title>
     <script src="popup.js" defer></script>
     <script src="pages.js" defer></script>
+    <script src="saveArticle.js" defer></script>
 
     <link rel="stylesheet" href="popup.css" />
     <link
@@ -17,7 +18,7 @@
   </head>
   <body>
     <div class="header centre">
-      <img src="spectrum_s.png" alt="logo" class="logo" />
+      <img src="new_spectrum.png" alt="logo" class="logo" />
       <h1>Spectrum: Bias Analysis</h1>
     </div>
     <!-- main page here -->
@@ -29,17 +30,19 @@
           No publisher loaded
         </p>
       </div>
-      <!-- <button id="analyze-button">Load Article</button> -->
       <button id="predict-button" class="panel-btn">Predict</button>
       <div class="current-article">
         <p class="sub-text">Political Stance: <span id="prediction">_</span></p>
+      </div>
+      <div class="controls">
+        <button id="save-button" class="opt-btn">Save article</button>
+        <button id="clear-button" class="opt-btn">Delete all</button>
       </div>
     </div>
 
     <!-- article list page here -->
     <div id="saved-articles-content" class="content centre hidden">
       <h2>Saved Articles</h2>
-      <p class="sub-text">to be implemented</p>
       <ul id="saved-articles-list"></ul>
     </div>
 
