@@ -1,55 +1,57 @@
-/* Card styling for saved articles */
-.article-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-}
+/* .article-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+} */
 
 .article-card {
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+    margin: 12px 0;
+    width: 75%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .article-card h3 {
-  font-size: 1.2em;
-  margin: 0;
-  margin-bottom: 8px;
-  color: #333;
+    font-size: 1.2em;
+    margin: 0;
+    margin-bottom: 8px;
+    color: #333;
 }
 
 .article-card p {
-  margin: 0;
-  color: #555;
-  font-size: 0.9em;
+    margin: 0;
+    color: #555;
+    font-size: 0.9em;
 }
 
 .article-card .card-controls {
-  margin-top: 16px;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .article-card button {
-  background: #ff595e;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8em;
-  transition: background 0.2s ease;
+    background: #ff595e;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background 0.2s ease;
 }
 
 .article-card button:hover {
-  background: #ff3b41;
+    background: #ff3b41;
 }
 
 .notification {

@@ -29,7 +29,7 @@ function updateArticleList(savedArticles) {
   listContainer.innerHTML = ""; // clear existing list
 
   if (savedArticles.length === 0) {
-    listContainer.innerHTML = "<p>No saved articles available.</p>";
+    listContainer.innerHTML = "<p>No articles currently saved</p>";
     return;
   }
 
@@ -38,7 +38,7 @@ function updateArticleList(savedArticles) {
     card.classList.add("article-card");
 
     const title = document.createElement("h3");
-    title.textContent = `Article: ${article.article}`;
+    title.textContent = `${article.article}`;
     const publisher = document.createElement("p");
     publisher.textContent = `Publisher: ${article.publisher}`;
     const deleteBtn = document.createElement("button");
@@ -69,17 +69,6 @@ function showNotification(message, isError = false) {
     notification.remove();
   }, 3000);
 }
-
-// navbar navigation
-document.getElementById("saved-articles-nav").addEventListener("click", () => {
-  document.getElementById("saved-articles-content").classList.remove("hidden");
-  document.getElementById("main-content").classList.add("hidden");
-});
-
-document.getElementById("main-nav").addEventListener("click", () => {
-  document.getElementById("main-content").classList.remove("hidden");
-  document.getElementById("saved-articles-content").classList.add("hidden");
-});
 
 // clear all articles
 document.getElementById("clear-button").addEventListener("click", () => {
