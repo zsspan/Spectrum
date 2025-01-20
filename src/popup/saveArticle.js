@@ -17,13 +17,12 @@ document.getElementById("save-button").addEventListener("click", () => {
     savedArticles.push({ article, publisher });
     localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
     updateArticleList(savedArticles);
-    showNotification("Article saved successfully!");
+    showNotification("Article saved!");
   } else {
     showNotification("Article or publisher data missing!", true);
   }
 });
 
-// update article list
 function updateArticleList(savedArticles) {
   const listContainer = document.getElementById("saved-articles-list");
   listContainer.innerHTML = ""; // clear existing list
@@ -38,9 +37,14 @@ function updateArticleList(savedArticles) {
     card.classList.add("article-card");
 
     const title = document.createElement("h3");
-    title.textContent = `${article.article}`;
+    title.textContent = article.article;
     const publisher = document.createElement("p");
-    publisher.textContent = `Publisher: ${article.publisher}`;
+    publisher.textContent = article.publisher;
+
+    // Create a card controls container
+    const controls = document.createElement("div");
+    controls.classList.add("card-controls");
+
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => {
@@ -50,14 +54,17 @@ function updateArticleList(savedArticles) {
       showNotification("Article deleted successfully!");
     });
 
+    // Append delete button to the card controls
+    controls.appendChild(deleteBtn);
+
+    // Append all elements to the card
     card.appendChild(title);
     card.appendChild(publisher);
-    card.appendChild(deleteBtn);
+    card.appendChild(controls);
     listContainer.appendChild(card);
   });
 }
 
-// Notification function
 function showNotification(message, isError = false) {
   const notification = document.createElement("div");
   notification.classList.add("notification", isError ? "error" : null);
@@ -74,5 +81,5 @@ function showNotification(message, isError = false) {
 document.getElementById("clear-button").addEventListener("click", () => {
   localStorage.removeItem("savedArticles");
   updateArticleList([]);
-  showNotification("All articles cleared successfully!");
+  showNotification("Cleared all!");
 });

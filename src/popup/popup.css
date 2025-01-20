@@ -98,9 +98,9 @@ button:hover {
 
 .current-article {
     margin: 12px 0;
-    width: 75%;
+    width: 70%;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #e9e9e9;
     border-radius: 5px;
     padding: 10px;
     text-align: left;
