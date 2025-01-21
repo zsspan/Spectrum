@@ -10,7 +10,7 @@
 }
 
 .article-card {
-    width: 85%;
+    width: 87%;
     background-color: #fff;
     border: 1px sol #e9e9e9;
     border-radius: 5px;
@@ -25,7 +25,7 @@
 .article-card h3 {
     font-size: 14px;
     margin: 0 0 2px 0;
-    color: #333;
+    color: #444;
 }
 
 .article-card p {
@@ -39,21 +39,31 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    gap: 0.4em;
 }
 
 .article-card button {
-    background: #ff595e;
     color: white;
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.8em;
-    transition: background 0.2s ease;
+    width: 54px;
+    transition: background-color 0.2s ease;
+}
+
+.link-button {
+    background: #3eaff0;
+}
+
+.delete-button {
+    background: #ff595e;
 }
 
 .article-card button:hover {
-    background: #ff3b41;
+    opacity: 0.75;
+    background-color: #9f4eb8;
 }
 
 .notification {

@@ -5,6 +5,7 @@
     <script src="popup.js" defer></script>
     <script src="pages.js" defer></script>
     <script src="saveArticle.js" defer></script>
+    <script src="drag.js" defer></script>
 
     <link rel="stylesheet" href="popup.css" />
     <link rel="stylesheet" href="article.css" />
@@ -19,7 +20,7 @@
   </head>
   <body>
     <div class="header centre">
-      <img src="new_spectrum.png" alt="logo" class="logo" />
+      <img src="../img/new_spectrum.png" alt="logo" class="logo" />
       <h1>Spectrum: Bias Analysis</h1>
     </div>
     <!-- main page here -->
@@ -31,19 +32,23 @@
           No publisher loaded
         </p>
       </div>
+      <div class="controls">
+        <button id="save-button" class="opt-btn">
+          <i class="fas fa-save"></i> Save
+        </button>
+        <button id="clear-button" class="opt-btn">
+          <i class="fas fa-trash"></i> Reset
+        </button>
+      </div>
       <button id="predict-button" class="panel-btn">Predict</button>
       <div class="current-article">
-        <p class="sub-text">Political Stance: <span id="prediction">_</span></p>
-      </div>
-      <div class="controls">
-        <button id="save-button" class="opt-btn">Save article</button>
-        <button id="clear-button" class="opt-btn">Delete all</button>
+        <p class="sub-text">Political Stance: <span id="prediction"></span></p>
       </div>
     </div>
 
     <!-- article list page here -->
     <div id="saved-articles-content" class="content centre hidden">
-      <h2>Saved Articles</h2>
+      <h2 class="heading">Saved Articles</h2>
       <ul id="saved-articles-list" class="article-list"></ul>
     </div>
 

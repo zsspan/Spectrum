@@ -7,9 +7,9 @@ window.addEventListener("load", () => {
 // save article functionality
 document.getElementById("save-button").addEventListener("click", () => {
   const article = document.getElementById("article-placeholder").textContent;
-  const publisher = document.getElementById(
-    "publisher-placeholder"
-  ).textContent;
+  const publisher = `By: ${
+    document.getElementById("publisher-placeholder").textContent
+  }`;
 
   if (article && publisher) {
     const savedArticles =
@@ -47,6 +47,8 @@ function updateArticleList(savedArticles) {
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("delete-button");
+
     deleteBtn.addEventListener("click", () => {
       savedArticles.splice(index, 1);
       localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
@@ -54,10 +56,13 @@ function updateArticleList(savedArticles) {
       showNotification("Article deleted successfully!");
     });
 
-    // Append delete button to the card controls
+    const linkBtn = document.createElement("button");
+    linkBtn.textContent = "Link";
+    linkBtn.classList.add("link-button");
+
+    controls.appendChild(linkBtn);
     controls.appendChild(deleteBtn);
 
-    // Append all elements to the card
     card.appendChild(title);
     card.appendChild(publisher);
     card.appendChild(controls);
