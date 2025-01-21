@@ -1,15 +1,18 @@
-/* .article-list {
+.article-list {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-} */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 1em;
+}
 
 .article-card {
-    margin: 12px 0;
-    width: 75%;
+    width: 87%;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px sol #e9e9e9;
     border-radius: 5px;
     padding: 10px;
     text-align: left;
@@ -20,38 +23,47 @@
 }
 
 .article-card h3 {
-    font-size: 1.2em;
-    margin: 0;
-    margin-bottom: 8px;
-    color: #333;
+    font-size: 14px;
+    margin: 0 0 2px 0;
+    color: #444;
 }
 
 .article-card p {
     margin: 0;
     color: #555;
-    font-size: 0.9em;
+    font-size: 12px;
 }
 
-.article-card .card-controls {
-    margin-top: 16px;
+.card-controls {
+    margin-top: 10px;
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    gap: 0.4em;
 }
 
 .article-card button {
-    background: #ff595e;
     color: white;
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.8em;
-    transition: background 0.2s ease;
+    width: 54px;
+    transition: background-color 0.2s ease;
+}
+
+.link-button {
+    background: #3eaff0;
+}
+
+.delete-button {
+    background: #ff595e;
 }
 
 .article-card button:hover {
-    background: #ff3b41;
+    opacity: 0.75;
+    background-color: #9f4eb8;
 }
 
 .notification {
@@ -71,8 +83,4 @@
 
 .notification.error {
     background-color: #f44336;
-}
-
-.notification.hidden {
-    display: none;
 }
