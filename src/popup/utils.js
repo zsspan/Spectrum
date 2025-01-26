@@ -1,16 +1,32 @@
-function showNotification(message, isError = false) {
-  const notification = document.createElement("div");
-  notification.classList.add("notification", isError ? "error" : null);
-  notification.textContent = message;
-
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.remove();
-  }, 3000);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
+  function showNotification(message, isError = false) {
+    const notification = document.createElement("div");
+    notification.classList.add("notification", isError ? "error" : null);
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+      notification.remove();
+    }, 3000);
+  }
+
+  function showModal() {
+    const modal = document.getElementById("settings-modal");
+    modal.classList.add("show");
+
+    const closeButton = modal.querySelector(".close-button");
+    closeButton.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.classList.remove("show");
+      }
+    });
+  }
+
   document.getElementById("download-button").addEventListener("click", () => {
     const savedArticles =
       JSON.parse(localStorage.getItem("savedArticles")) || [];
@@ -29,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.getElementById("settings-button").addEventListener("click", () => {
-    // implement settings functionality here
-    showNotification("Settings clicked!");
+    showModal();
   });
 });
