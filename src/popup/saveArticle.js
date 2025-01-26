@@ -12,11 +12,12 @@ document.getElementById("save-button").addEventListener("click", () => {
     const publisher = `By: ${
       document.getElementById("publisher-placeholder").textContent
     }`;
+    const prediction = document.getElementById("prediction").textContent;
 
     if (article && publisher && url) {
       const savedArticles =
         JSON.parse(localStorage.getItem("savedArticles")) || [];
-      savedArticles.push({ article, publisher, url });
+      savedArticles.push({ article, publisher, url, prediction });
       localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
       updateArticleList(savedArticles);
       showNotification("Article saved!");
@@ -30,11 +31,15 @@ function createArticleCard(article, index, savedArticles) {
   const card = document.createElement("div");
   card.classList.add("article-card");
 
+  const predictionText = article.prediction
+    ? `<p>Stance: ${article.prediction}</p>`
+    : "";
+
   card.innerHTML = `
     <h3>${article.article}</h3>
     <p>${article.publisher}</p>
+    ${predictionText}
     <div class="card-controls">
-      <button class="reload-button">Reload</button>
       <button class="link-button">Link</button>
       <button class="delete-button">Delete</button>
     </div>
