@@ -176,5 +176,10 @@ button:hover {
 }
 
 .heading {
-    margin: 12px;
+    margin: 6px;
+}
+
+.bottom-opts {
+    margin-top: auto;
+    padding-top: 12px;
 }

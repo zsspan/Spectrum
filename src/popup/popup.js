@@ -52,6 +52,7 @@ predictButton.addEventListener("click", () => {
         return response.json();
       })
       .then((data) => {
+        console.log(data.prediction);
         prediction.textContent = data.prediction;
       })
       .catch((error) => {

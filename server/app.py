@@ -46,7 +46,7 @@ def article_content():
     print("url: ", url)
 
     article_body = get_article_body(url)
-    prediction = predict(article_body)
+    prediction = predict(article_body).capitalize()
     print("predicted: ", prediction)
     return jsonify({'prediction': prediction})
 

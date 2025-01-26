@@ -10,7 +10,7 @@
 }
 
 .article-card {
-    width: 87%;
+    width: 85%;
     background-color: #fff;
     border: 1px sol #e9e9e9;
     border-radius: 5px;
@@ -35,7 +35,7 @@
 }
 
 .card-controls {
-    margin-top: 10px;
+    margin-top: 2px;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -59,6 +59,10 @@
 
 .delete-button {
     background: #ff595e;
+}
+
+.reload-button {
+    background: #7c3692;
 }
 
 .article-card button:hover {

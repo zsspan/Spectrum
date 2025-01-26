@@ -6,22 +6,69 @@ window.addEventListener("load", () => {
 
 // save article functionality
 document.getElementById("save-button").addEventListener("click", () => {
-  const article = document.getElementById("article-placeholder").textContent;
-  const publisher = `By: ${
-    document.getElementById("publisher-placeholder").textContent
-  }`;
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    const url = tabs[0].url;
+    const article = document.getElementById("article-placeholder").textContent;
+    const publisher = document.getElementById(
+      "publisher-placeholder"
+    ).textContent;
 
-  if (article && publisher) {
-    const savedArticles =
-      JSON.parse(localStorage.getItem("savedArticles")) || [];
-    savedArticles.push({ article, publisher });
+    const prediction = document.getElementById("prediction").textContent;
+
+    if (article && publisher && url) {
+      const savedArticles =
+        JSON.parse(localStorage.getItem("savedArticles")) || [];
+      savedArticles.push({ article, publisher, url, prediction });
+      localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+      updateArticleList(savedArticles);
+      showNotification("Article saved!");
+    } else {
+      showNotification("Article or publisher data missing!", true);
+    }
+  });
+});
+
+function createArticleCard(article, index, savedArticles) {
+  const card = document.createElement("div");
+  card.classList.add("article-card");
+  card.setAttribute("draggable", "true");
+  card.setAttribute("data-index", index);
+
+  const predictionText = article.prediction
+    ? `<p><span class="prediction">Stance:</span> ${article.prediction}</p>`
+    : "";
+
+  card.innerHTML = `
+    <h3>${article.article}</h3>
+    <p>By: ${article.publisher}</p>
+    ${predictionText}
+    <div class="card-controls">
+      <button class="link-button">Link</button>
+      <button class="delete-button">Delete</button>
+    </div>
+  `;
+
+  const linkBtn = card.querySelector(".link-button");
+  linkBtn.addEventListener("click", () => {
+    window.open(article.url, "_blank");
+  });
+
+  const deleteBtn = card.querySelector(".delete-button");
+  deleteBtn.addEventListener("click", () => {
+    savedArticles.splice(index, 1);
     localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
     updateArticleList(savedArticles);
-    showNotification("Article saved!");
-  } else {
-    showNotification("Article or publisher data missing!", true);
-  }
-});
+    showNotification("Article deleted successfully!");
+  });
+
+  // drag and drop event listeners
+  card.addEventListener("dragstart", handleDragStart);
+  card.addEventListener("dragover", handleDragOver);
+  card.addEventListener("drop", handleDrop);
+  card.addEventListener("dragend", handleDragEnd);
+
+  return card;
+}
 
 function updateArticleList(savedArticles) {
   const listContainer = document.getElementById("saved-articles-list");
@@ -32,54 +79,12 @@ function updateArticleList(savedArticles) {
     return;
   }
 
+  const fragment = document.createDocumentFragment();
   savedArticles.forEach((article, index) => {
-    const card = document.createElement("div");
-    card.classList.add("article-card");
-
-    const title = document.createElement("h3");
-    title.textContent = article.article;
-    const publisher = document.createElement("p");
-    publisher.textContent = article.publisher;
-
-    // Create a card controls container
-    const controls = document.createElement("div");
-    controls.classList.add("card-controls");
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.classList.add("delete-button");
-
-    deleteBtn.addEventListener("click", () => {
-      savedArticles.splice(index, 1);
-      localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
-      updateArticleList(savedArticles);
-      showNotification("Article deleted successfully!");
-    });
-
-    const linkBtn = document.createElement("button");
-    linkBtn.textContent = "Link";
-    linkBtn.classList.add("link-button");
-
-    controls.appendChild(linkBtn);
-    controls.appendChild(deleteBtn);
-
-    card.appendChild(title);
-    card.appendChild(publisher);
-    card.appendChild(controls);
-    listContainer.appendChild(card);
+    fragment.appendChild(createArticleCard(article, index, savedArticles));
   });
-}
 
-function showNotification(message, isError = false) {
-  const notification = document.createElement("div");
-  notification.classList.add("notification", isError ? "error" : null);
-  notification.textContent = message;
-
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.remove();
-  }, 3000);
+  listContainer.appendChild(fragment);
 }
 
 // clear all articles
