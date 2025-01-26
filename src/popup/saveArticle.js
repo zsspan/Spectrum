@@ -9,9 +9,10 @@ document.getElementById("save-button").addEventListener("click", () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const url = tabs[0].url;
     const article = document.getElementById("article-placeholder").textContent;
-    const publisher = `By: ${
-      document.getElementById("publisher-placeholder").textContent
-    }`;
+    const publisher = document.getElementById(
+      "publisher-placeholder"
+    ).textContent;
+
     const prediction = document.getElementById("prediction").textContent;
 
     if (article && publisher && url) {
@@ -39,7 +40,7 @@ function createArticleCard(article, index, savedArticles) {
 
   card.innerHTML = `
     <h3>${article.article}</h3>
-    <p>${article.publisher}</p>
+    <p>By: ${article.publisher}</p>
     ${predictionText}
     <div class="card-controls">
       <button class="link-button">Link</button>
@@ -60,7 +61,7 @@ function createArticleCard(article, index, savedArticles) {
     showNotification("Article deleted successfully!");
   });
 
-  // rag and drop event listeners
+  // drag and drop event listeners
   card.addEventListener("dragstart", handleDragStart);
   card.addEventListener("dragover", handleDragOver);
   card.addEventListener("drop", handleDrop);
@@ -84,18 +85,6 @@ function updateArticleList(savedArticles) {
   });
 
   listContainer.appendChild(fragment);
-}
-
-function showNotification(message, isError = false) {
-  const notification = document.createElement("div");
-  notification.classList.add("notification", isError ? "error" : null);
-  notification.textContent = message;
-
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.remove();
-  }, 3000);
 }
 
 // clear all articles

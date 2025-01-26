@@ -6,6 +6,7 @@
     <script src="pages.js" defer></script>
     <script src="saveArticle.js" defer></script>
     <script src="drag.js" defer></script>
+    <script src="utils.js" defer></script>
 
     <link rel="stylesheet" href="popup.css" />
     <link rel="stylesheet" href="article.css" />
@@ -36,9 +37,6 @@
         <button id="save-button" class="opt-btn">
           <i class="fas fa-save"></i> Save
         </button>
-        <button id="clear-button" class="opt-btn">
-          <i class="fas fa-trash"></i> Reset
-        </button>
       </div>
       <button id="predict-button" class="panel-btn">Predict</button>
       <div class="current-article">
@@ -50,6 +48,20 @@
     <div id="saved-articles-content" class="content centre hidden">
       <h2 class="heading">Saved Articles</h2>
       <ul id="saved-articles-list" class="article-list"></ul>
+
+      <div class="controls bottom-opts">
+        <button id="clear-button" class="opt-btn">
+          <i class="fas fa-trash"></i> Reset
+        </button>
+        <button id="download-button" class="opt-btn">
+          <i class="fas fa-download"></i> Export
+        </button>
+        <button id="settings-button" class="opt-btn">
+          <i class="fas fa-cog"></i> Settings
+        </button>
+      </div>
+      </div>
+
     </div>
 
     <div class="navbar">
