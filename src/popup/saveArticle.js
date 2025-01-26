@@ -30,9 +30,11 @@ document.getElementById("save-button").addEventListener("click", () => {
 function createArticleCard(article, index, savedArticles) {
   const card = document.createElement("div");
   card.classList.add("article-card");
+  card.setAttribute("draggable", "true");
+  card.setAttribute("data-index", index);
 
   const predictionText = article.prediction
-    ? `<p>Stance: ${article.prediction}</p>`
+    ? `<p><span class="prediction">Stance:</span> ${article.prediction}</p>`
     : "";
 
   card.innerHTML = `
@@ -57,6 +59,12 @@ function createArticleCard(article, index, savedArticles) {
     updateArticleList(savedArticles);
     showNotification("Article deleted successfully!");
   });
+
+  // rag and drop event listeners
+  card.addEventListener("dragstart", handleDragStart);
+  card.addEventListener("dragover", handleDragOver);
+  card.addEventListener("drop", handleDrop);
+  card.addEventListener("dragend", handleDragEnd);
 
   return card;
 }
