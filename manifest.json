@@ -1,10 +1,19 @@
 {
-    "name": "Article Analyzer",
-    "version": "1.0",
-    "manifest_version": 3,
-    "permissions": ["scripting", "activeTab"],
-    "action": {
-      "default_popup": "src/popup/popup.html"
+  "name": "Article Analyzer",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["scripting", "activeTab"],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "src/img/new_spectrum.png",
+      "48": "src/img/new_spectrum.png",
+      "128": "src/img/new_spectrum.png"
     }
+  },
+  "icons": {
+    "16": "src/img/new_spectrum.png",
+    "48": "src/img/new_spectrum.png",
+    "128": "src/img/new_spectrum.png"
+  }
 }
-  
