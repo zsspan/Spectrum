@@ -54,6 +54,7 @@ predictButton.addEventListener("click", () => {
       .then((data) => {
         console.log(data.prediction);
         prediction.textContent = data.prediction;
+        notatePrediction();
       })
       .catch((error) => {
         console.error("Unable to make prediction", error);
