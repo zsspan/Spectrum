@@ -165,7 +165,7 @@ button:hover {
     margin: 3px 0 1px 0;
     cursor: pointer;
     font-weight: bold;
-    font-size: 11.5px;
+    font-size: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
