@@ -1,4 +1,5 @@
 .article-list {
+    width: 90%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -10,9 +11,9 @@
 }
 
 .article-card {
-    width: 85%;
+    width: 90%;
     background-color: #fff;
-    border: 1px sol #e9e9e9;
+    border: 1px solid #e9e9e9;
     border-radius: 5px;
     padding: 10px;
     text-align: left;
