@@ -149,30 +149,33 @@ button:hover {
 }
 
 .navbar {
-    height: 64px;
+    height: 68px;
     width: 100%;
     margin: 0;
     display: flex;
     background-color: #f4eef5;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 3em;
 }
 
 .navbar button {
     all: unset;
     color: #333;
-    margin: 5px 0;
+    margin: 3px 0 1px 0;
     cursor: pointer;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 11.5px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    flex-direction: column;
+    width: 40px;
 }
 
 .navbar button i {
-    font-size: 18px;
+    font-size: 20px;
     color: #666;
+    margin: 0;
 }
 
 .heading {
