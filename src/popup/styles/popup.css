@@ -154,7 +154,8 @@ button:hover {
     margin: 0;
     display: flex;
     background-color: #f4eef5;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 2.5em;
     align-items: center;
 }
 
@@ -183,3 +184,19 @@ button:hover {
     margin-top: auto;
     padding-top: 12px;
 }
+/* 
+#settings-button {
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.settings-btn:hover {
+    background-color: #555;
+} */
