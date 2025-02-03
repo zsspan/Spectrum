@@ -1,12 +1,11 @@
 import joblib
 import pandas as pd
 import spacy
-import numpy as np
 
 nlp = spacy.load("en_core_web_sm")
 nlp.max_length = 1500000
 
-
+# tokenize and lemmatize the given text
 def preprocess_text(text):
     if not isinstance(text, str):
         return ""
@@ -16,7 +15,7 @@ def preprocess_text(text):
     ]
     return " ".join(processed_tokens)
 
-
+# used to turn raw article body into a feature vector
 def preprocess_article(article_body):
     # loading the fitted vectorizer
     vectorizer = joblib.load("data/joblib/vectorizer.joblib")
@@ -26,8 +25,8 @@ def preprocess_article(article_body):
 
     return feature_vector
 
-
-def predict(article_body):
+# get the political classification of the article
+def classify(article_body):
     # loading the trained logistic regression model
     model = joblib.load("data/joblib/large_data_log.joblib")
 
@@ -37,7 +36,7 @@ def predict(article_body):
 
     return prediction[0]
 
-
+# get the words that contributed most to the classification of the article
 def get_top_words(article_body, top_n=50):
     # load the fitted vectorizer and model
     vectorizer = joblib.load("data/joblib/vectorizer.joblib")
@@ -60,9 +59,9 @@ def get_top_words(article_body, top_n=50):
 
     return top_words
 
-
-def predict_with_top_words(article_body):
-    prediction = predict(article_body)
+# get final results of the NLP and ML analysis
+def get_analysis_results(article_body):
+    prediction = classify(article_body)
     top_words = get_top_words(article_body)
 
     return prediction, top_words
