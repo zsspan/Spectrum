@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from article_classify import predict
+from article_classify import get_analysis_results
 from article_parse import get_article_body, get_soup_object
 from urllib.parse import urlparse
 
@@ -46,9 +46,14 @@ def article_content():
     print("url: ", url)
 
     article_body = get_article_body(url)
-    prediction = predict(article_body).capitalize()
+    # prediction = predict(article_body).capitalize()
+
+    prediction, top_words = get_analysis_results(article_body)
+    prediction = prediction.capitalize()
+
+    print("top words: ", top_words)
     print("predicted: ", prediction)
-    return jsonify({'prediction': prediction})
+    return jsonify({'prediction': prediction, 'top_words': top_words})
 
 
 if __name__ == "__main__":
