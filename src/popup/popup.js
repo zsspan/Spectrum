@@ -53,6 +53,7 @@ predictButton.addEventListener("click", () => {
       })
       .then((data) => {
         console.log(data.prediction);
+        console.log(data.top_words)
         prediction.textContent = data.prediction;
         notatePrediction();
       })
