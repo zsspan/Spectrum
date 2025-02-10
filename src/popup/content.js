@@ -45,7 +45,7 @@ function highlightWords(words) {
 
   // actual stuff starts
   // console.log("Starting to highlight words");
-  
+  // console.log('Word list:', words);
 
   let articleElement = getArticleElement();
   if (!articleElement) {
@@ -67,7 +67,7 @@ function highlightWords(words) {
     let currentText = node.nodeValue;
     let parent = node.parentNode;
 
-    if (!parent) return;
+    if (!parent || currentText === "") return;
 
     let modified = false;
     let fragment = document.createDocumentFragment();
@@ -111,10 +111,11 @@ function highlightWords(words) {
       }
     });
 
+    // still some issues here, need to fix later
     if (modified) {
       // console.log(`Replacing text: "${currentText}"`);
       parent.replaceChild(fragment, node);
-    }
+    } 
     // else {
     //   console.log(`No replacements made for: "${currentText}"`);
     // }
