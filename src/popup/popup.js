@@ -53,7 +53,16 @@ predictButton.addEventListener("click", () => {
       })
       .then((data) => {
         console.log(data.prediction);
-        console.log(data.top_words)
+
+        console.log(data.top_words);
+
+        // highlightWords(data.top_words);
+        chrome.scripting.executeScript({
+          target: { tabId: currentTab.id },
+          func: highlightWords,
+          args: [data.top_words], // Pass the top words
+        });
+
         prediction.textContent = data.prediction;
         notatePrediction();
       })

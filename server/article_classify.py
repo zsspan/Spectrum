@@ -2,6 +2,10 @@ import joblib
 import pandas as pd
 import spacy
 
+# temporary warning supresssion for mismatched scikit-learn versions
+import warnings
+warnings.simplefilter("ignore", category=UserWarning)
+
 nlp = spacy.load("en_core_web_sm")
 nlp.max_length = 1500000
 

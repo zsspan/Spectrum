@@ -15,5 +15,11 @@
     "16": "src/img/new_spectrum.png",
     "48": "src/img/new_spectrum.png",
     "128": "src/img/new_spectrum.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/popup/content.js"]
+    }
+  ]
 }
