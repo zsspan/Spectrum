@@ -95,10 +95,14 @@ body {
     transition: text-decoration 0.2s ease;
 }
 
-.opt-btn:hover {
+.opt-btn p {
+    margin: 0;
+    display: inline;
+}
+
+.opt-btn p:hover {
     text-decoration: underline;
     text-decoration-thickness: 1px;
-
 }
 
 button:hover {
@@ -184,6 +188,7 @@ button:hover {
     margin-top: auto;
     padding-top: 12px;
 }
+
 /* 
 #settings-button {
     position: absolute;
