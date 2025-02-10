@@ -1,8 +1,11 @@
 const articlePlaceholder = document.getElementById("article-placeholder");
 const publisherPlaceholder = document.getElementById("publisher-placeholder");
 const predictButton = document.getElementById("predict-button");
-const prediction = document.getElementById("prediction");
 
+// todo: relocate injected script logic to this button
+const highlightButton = document.getElementById("highlight-button");
+
+const prediction = document.getElementById("prediction");
 function analyzeCurrentTab() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const currentTab = tabs[0];
@@ -53,7 +56,16 @@ predictButton.addEventListener("click", () => {
       })
       .then((data) => {
         console.log(data.prediction);
-        console.log(data.top_words)
+
+        console.log(data.top_words);
+
+        // highlightWords(data.top_words);
+        chrome.scripting.executeScript({
+          target: { tabId: currentTab.id },
+          func: highlightWords,
+          args: [data.top_words], // Pass the top words
+        });
+
         prediction.textContent = data.prediction;
         notatePrediction();
       })

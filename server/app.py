@@ -4,10 +4,6 @@ from article_classify import get_analysis_results
 from article_parse import get_article_body, get_soup_object
 from urllib.parse import urlparse
 
-# temporary warning supresssion for mismatched scikit-learn versions
-import warnings
-warnings.filterwarnings("ignore", category=UserWarning, module="sklearn")
-
 
 app = Flask(__name__)
 CORS(app)

@@ -3,6 +3,7 @@
   <head>
     <title>Spectrum: News Analysis</title>
     <script src="popup.js" defer></script>
+    <script src="content.js" defer></script>
     <script src="pages.js" defer></script>
     <script src="saveArticle.js" defer></script>
     <script src="drag.js" defer></script>
@@ -36,7 +37,12 @@
       </div>
       <div class="controls">
         <button id="save-button" class="opt-btn">
-          <i class="fas fa-save"></i> Save
+          <i class="fas fa-save"></i>
+          <p>Save</p>
+        </button>
+        <button id="highlight-button" class="opt-btn">
+          <i class="fas fa-book"></i>
+          <p>Top Words</p>
         </button>
       </div>
       <button id="predict-button" class="panel-btn">Predict</button>
