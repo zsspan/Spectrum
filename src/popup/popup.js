@@ -1,8 +1,11 @@
 const articlePlaceholder = document.getElementById("article-placeholder");
 const publisherPlaceholder = document.getElementById("publisher-placeholder");
 const predictButton = document.getElementById("predict-button");
-const prediction = document.getElementById("prediction");
 
+// todo: relocate injected script logic to this button
+const highlightButton = document.getElementById("highlight-button");
+
+const prediction = document.getElementById("prediction");
 function analyzeCurrentTab() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const currentTab = tabs[0];
