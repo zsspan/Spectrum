@@ -43,3 +43,49 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.setting-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+}
+
+.setting-list button{
+    padding: 0;
+}
+
+.setting-list button p:hover {
+    text-decoration: underline;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.1s;
+}
+
+.checkbox-container input:checked+.checkmark {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.checkbox-container p {
+    margin: 0;
+}
