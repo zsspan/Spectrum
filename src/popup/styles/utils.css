@@ -51,10 +51,6 @@
     gap: 0.5em;
 }
 
-.setting-list button{
-    padding: 0;
-}
-
 .setting-list button p:hover {
     text-decoration: underline;
 }
@@ -71,21 +67,29 @@
 }
 
 .checkmark {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #333;
+    width: 16px;
+    height: 16px;
+    border: 2px solid black;
     border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background 0.1s;
+    transition: background-color 0.2s;
 }
 
 .checkbox-container input:checked+.checkmark {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #4c185c;
 }
 
 .checkbox-container p {
     margin: 0;
+}
+
+#view-button {
+    padding: 0;
+}
+
+#view-button i {
+    /* margin: 0 4px; */
+    margin: 0 4px 0 2.5px;
 }
