@@ -67,8 +67,8 @@
 }
 
 .checkmark {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     border: 2px solid black;
     border-radius: 4px;
     display: flex;
@@ -90,6 +90,6 @@
 }
 
 #view-button i {
-    /* margin: 0 4px; */
-    margin: 0 4px 0 2.5px;
+    /* margin: 0 3px; */
+    margin: 0 4px 0 2px;
 }

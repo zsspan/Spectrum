@@ -1,62 +1,64 @@
+const downloadButton = document.getElementById("download-button");
+const settingsButton = document.getElementById("settings-button");
+const viewButton = document.getElementById("view-button");
+const highlightCheckbox = document.getElementById("highlight-checkbox");
+
 let publisherStats = JSON.parse(localStorage.getItem("publisherStats")) || {};
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("download-button").addEventListener("click", () => {
-    const savedArticles =
-      JSON.parse(localStorage.getItem("savedArticles")) || [];
-    const blob = new Blob([JSON.stringify(savedArticles, null, 2)], {
-      type: "application/json",
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "saved_articles.json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    showNotification("Downloaded articles!");
+function handleDownloadArticles() {
+  const savedArticles = JSON.parse(localStorage.getItem("savedArticles")) || [];
+  const blob = new Blob([JSON.stringify(savedArticles, null, 2)], {
+    type: "application/json",
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "saved_articles.json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showNotification("Downloaded articles!");
+}
+
+function handleSettingsClick() {
+  showModal();
+}
+
+function handleDownloadStats() {
+  const statsJson = JSON.stringify(publisherStats, null, 2);
+  const blob = new Blob([statsJson], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "publisher_stats.json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showNotification("Publisher stats downloaded!");
+}
+
+function handleTopWordsChange() {
+  const isChecked = highlightCheckbox.checked;
+  console.log("Top Words setting:", isChecked ? "Enabled" : "Disabled");
+}
+
+function showModal() {
+  const modal = document.getElementById("settings-modal");
+  modal.classList.add("show");
+
+  const closeButton = modal.querySelector(".close-button");
+  closeButton.addEventListener("click", () => {
+    modal.classList.remove("show");
   });
 
-  document.getElementById("settings-button").addEventListener("click", () => {
-    showModal();
-  });
-
-  document.getElementById("view-button").addEventListener("click", () => {
-    const statsJson = JSON.stringify(publisherStats, null, 2);
-    const blob = new Blob([statsJson], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "publisher_stats.json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    showNotification("Publisher stats downloaded!");
-  });
-
-  function showModal() {
-    const modal = document.getElementById("settings-modal");
-    modal.classList.add("show");
-
-    const closeButton = modal.querySelector(".close-button");
-    closeButton.addEventListener("click", () => {
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
       modal.classList.remove("show");
-    });
-
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        modal.classList.remove("show");
-      }
-    });
-  }
-
-  document.getElementById("highlight-checkbox").addEventListener("change", function () {
-    const isChecked = this.checked;
-    console.log("Top Words setting:", isChecked ? "Enabled" : "Disabled");
+    }
   });
-});
+}
 
 function showNotification(message, isError = false) {
   const notification = document.createElement("div");
@@ -92,3 +94,10 @@ function notatePrediction() {
     localStorage.setItem("publisherStats", JSON.stringify(publisherStats));
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  downloadButton.addEventListener("click", handleDownloadArticles);
+  settingsButton.addEventListener("click", handleSettingsClick);
+  viewButton.addEventListener("click", handleDownloadStats);
+  highlightCheckbox.addEventListener("change", handleTopWordsChange);
+});
