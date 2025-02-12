@@ -51,6 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  document.getElementById("highlight-checkbox").addEventListener("change", function () {
+    const isChecked = this.checked;
+    console.log("Top Words setting:", isChecked ? "Enabled" : "Disabled");
+  });
 });
 
 function showNotification(message, isError = false) {

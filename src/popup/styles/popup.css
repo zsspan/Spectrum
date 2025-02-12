@@ -93,6 +93,7 @@ body {
     border-radius: 4px;
     background-color: transparent;
     transition: text-decoration 0.2s ease;
+    font-family: 'Poppins';
 }
 
 .opt-btn p {
