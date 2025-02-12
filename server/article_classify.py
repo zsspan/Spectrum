@@ -43,7 +43,7 @@ def classify(article_body):
 
 
 # get the words that contributed most to the classification of the article
-def get_top_words(article_body, top_n=50):
+def get_top_words(article_body, top_n=100):
     preprocessed_text = preprocess_text(article_body)
     feature_vector = vectorizer.transform([preprocessed_text])
 
