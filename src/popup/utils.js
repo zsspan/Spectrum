@@ -39,11 +39,6 @@ function handleDownloadStats() {
   showNotification("Publisher stats downloaded!");
 }
 
-function handleTopWordsChange() {
-  const isChecked = highlightCheckbox.checked;
-  console.log("Top Words setting:", isChecked ? "Enabled" : "Disabled");
-}
-
 function showModal() {
   const modal = document.getElementById("settings-modal");
   modal.classList.add("show");
@@ -73,7 +68,6 @@ function showNotification(message, isError = false) {
 }
 
 function notatePrediction() {
-  console.log("notatePrediction");
   const publisher = document.getElementById(
     "publisher-placeholder"
   ).textContent;
@@ -99,5 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
   downloadButton.addEventListener("click", handleDownloadArticles);
   settingsButton.addEventListener("click", handleSettingsClick);
   viewButton.addEventListener("click", handleDownloadStats);
-  highlightCheckbox.addEventListener("change", handleTopWordsChange);
+
+  highlightCheckbox.addEventListener("change", () => {
+    localStorage.setItem("highlight-checkbox", highlightCheckbox.checked);
+  });
+
+  const savedState = localStorage.getItem("highlight-checkbox") === "true";
+  highlightCheckbox.checked = savedState;
 });

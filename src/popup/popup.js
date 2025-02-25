@@ -56,15 +56,17 @@ predictButton.addEventListener("click", () => {
       })
       .then((data) => {
         console.log(data.prediction);
+        // console.log(data.top_words);
 
-        console.log(data.top_words);
-
-        // highlightWords(data.top_words);
-        chrome.scripting.executeScript({
-          target: { tabId: currentTab.id },
-          func: highlightWords,
-          args: [data.top_words], // Pass the top words
-        });
+        const savedState = localStorage.getItem("highlight-checkbox") === "true";
+        if (savedState) {
+          // highlightWords(data.top_words);
+          chrome.scripting.executeScript({
+            target: { tabId: currentTab.id },
+            func: highlightWords,
+            args: [data.top_words],
+          });
+        }
 
         prediction.textContent = data.prediction;
         notatePrediction();
