@@ -160,7 +160,7 @@ button:hover {
     display: flex;
     background-color: #f4eef5;
     justify-content: center;
-    gap: 2.5em;
+    gap: 3.5em;
     align-items: center;
 }
 
@@ -190,19 +190,26 @@ button:hover {
     padding-top: 12px;
 }
 
-/* 
-#settings-button {
-    position: absolute;
+
+.bubble {
+    position: fixed;
     bottom: 60px;
-    right: 20px;
-    border-radius: 50%;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
+    display: flex;
+    gap: 1px;
+    flex-direction: column;
+    background: #7c3692;
+    padding: 4px 1px 4px 0;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(76, 24, 92, 0.3);
 }
 
-.settings-btn:hover {
-    background-color: #555;
-} */
+.bubble button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.bubble button:hover {
+    opacity: 0.9;
+}
