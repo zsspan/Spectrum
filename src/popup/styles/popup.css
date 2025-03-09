@@ -191,7 +191,7 @@ button:hover {
 }
 
 
-.bubble {
+#bubble {
     position: fixed;
     bottom: 60px;
     display: flex;
@@ -202,14 +202,21 @@ button:hover {
     border-radius: 0 12px 12px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     border: 2px solid rgba(76, 24, 92, 0.3);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.bubble button {
+#bubble button {
     border: none;
     cursor: pointer;
     background-color: transparent;
 }
 
-.bubble button:hover {
-    opacity: 0.9;
+#bubble button:hover {
+    opacity: 0.8;
+}
+
+.hide-button {
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
 }

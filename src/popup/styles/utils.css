@@ -27,11 +27,17 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+.modal-content h2 {
+    margin: 0;
+    text-align: center;
+    color: #1b0621;
+}
+
 .close-button {
-    color: #aaa;
+    color: #4b4b4b;
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 20px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -45,10 +51,11 @@
 }
 
 .setting-list {
+    padding: 0.75em;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5em;
+    gap: 0.25em;
 }
 
 .setting-list button p:hover {

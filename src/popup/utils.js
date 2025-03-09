@@ -2,8 +2,10 @@ const downloadButton = document.getElementById("download-button");
 const settingsButton = document.getElementById("settings-button");
 const viewButton = document.getElementById("view-button");
 const highlightCheckbox = document.getElementById("highlight-checkbox");
+const bubble = document.getElementById("bubble");
 
 let publisherStats = JSON.parse(localStorage.getItem("publisherStats")) || {};
+let hideTimeout;
 
 function handleDownloadArticles() {
   const savedArticles = JSON.parse(localStorage.getItem("savedArticles")) || [];
@@ -100,4 +102,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const savedState = localStorage.getItem("highlight-checkbox") === "true";
   highlightCheckbox.checked = savedState;
+
+  // setings and info bubble logic
+  function hideBubble() {
+    console.log("hideBubble");
+    hideTimeout = setTimeout(() => {
+      bubble.style.opacity = "0";
+      bubble.style.pointerEvents = "none";
+      bubble.classList.add("hide-button");
+    }, 2000);
+  }
+
+  document.addEventListener("mousemove", (event) => {
+    console.log(event.clientX);
+    if (event.clientX < 70) {
+      clearTimeout(hideTimeout);
+      bubble.style.opacity = "1";
+      bubble.style.pointerEvents = "auto";
+      bubble.classList.remove("hide-button");
+    } else if (bubble.style.opacity === "1") {
+      hideBubble();
+    }
+  });
+
+  hideBubble(); // start hide timer on load
 });
