@@ -38,10 +38,10 @@
       <div class="controls">
         <button id="save-button" class="opt-btn">
           <i class="fas fa-save"></i>
-          <p>Save</p>
+          <p>Save to pinned list</p>
         </button>
       </div>
-      <button id="predict-button" class="panel-btn">Predict</button>
+      <button id="predict-button" class="panel-btn">Classify Article</button>
       <div class="current-article">
         <p class="sub-text">Political Stance: <span id="prediction"></span></p>
       </div>
@@ -78,7 +78,7 @@
       <div class="modal-content">
         <h2>Settings</h2>
         <span class="close-button">&times;</span>
-        <div class="setting-list">
+        <div class="modal-list">
           <button id="view-button" class="opt-btn">
             <i class="fas fa-eye"></i>
             <p>View total stats</p>
@@ -90,6 +90,29 @@
             <span class="checkmark"></span>
             <p class="opt-btn">Toggle top words</p>
           </label>
+        </div>
+      </div>
+    </div>
+
+    <div id="info-modal" class="modal info hidden">
+      <div class="modal-content">
+        <h2>Info</h2>
+        <span class="close-button">&times;</span>
+        <p class="teaser">Made by Zohair Syed, last updated Mar. 2025</p>
+
+        <div class="modal-list">
+          <a href="https://github.com/zsspan/Spectrum/tree/main" target="_blank">
+            <button class="opt-btn">
+              <i class="fab fa-github"></i>
+              <p>GitHub</p>
+            </button>
+          </a>
+          <a href="https://linkedin.com/in/zohairsyed" target="_blank">
+            <button class="opt-btn">
+              <i class="fab fa-linkedin"></i>
+              <p>LinkedIn</p>
+            </button>
+          </a>
         </div>
       </div>
     </div>

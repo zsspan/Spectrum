@@ -1,5 +1,6 @@
 const downloadButton = document.getElementById("download-button");
 const settingsButton = document.getElementById("settings-button");
+const infoButton = document.getElementById("info-button");
 const viewButton = document.getElementById("view-button");
 const highlightCheckbox = document.getElementById("highlight-checkbox");
 const bubble = document.getElementById("bubble");
@@ -23,8 +24,12 @@ function handleDownloadArticles() {
   showNotification("Downloaded articles!");
 }
 
+function handleInfoClick() {
+  showModal("info-modal");
+}
+
 function handleSettingsClick() {
-  showModal();
+  showModal("settings-modal");
 }
 
 function handleDownloadStats() {
@@ -41,8 +46,8 @@ function handleDownloadStats() {
   showNotification("Publisher stats downloaded!");
 }
 
-function showModal() {
-  const modal = document.getElementById("settings-modal");
+function showModal(modalID) {
+  const modal = document.getElementById(modalID);
   modal.classList.add("show");
 
   const closeButton = modal.querySelector(".close-button");
@@ -94,6 +99,8 @@ function notatePrediction() {
 document.addEventListener("DOMContentLoaded", () => {
   downloadButton.addEventListener("click", handleDownloadArticles);
   settingsButton.addEventListener("click", handleSettingsClick);
+  infoButton.addEventListener("click", handleInfoClick);
+
   viewButton.addEventListener("click", handleDownloadStats);
 
   highlightCheckbox.addEventListener("change", () => {
@@ -105,7 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // setings and info bubble logic
   function hideBubble() {
-    console.log("hideBubble");
     hideTimeout = setTimeout(() => {
       bubble.style.opacity = "0";
       bubble.style.pointerEvents = "none";
@@ -114,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.addEventListener("mousemove", (event) => {
-    console.log(event.clientX);
     if (event.clientX < 70) {
       clearTimeout(hideTimeout);
       bubble.style.opacity = "1";

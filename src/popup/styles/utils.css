@@ -50,7 +50,7 @@
     cursor: pointer;
 }
 
-.setting-list {
+.modal-list {
     padding: 0.75em;
     display: flex;
     flex-direction: column;
@@ -58,8 +58,19 @@
     gap: 0.25em;
 }
 
-.setting-list button p:hover {
+.modal-list button p:hover {
     text-decoration: underline;
+}
+
+.teaser {
+    font-size: 14px;
+    margin: 0.4em 0;
+    text-align: center;
+}
+
+.info .modal-list {
+    flex-direction: row;
+    justify-content: center;
 }
 
 .checkbox-container {
