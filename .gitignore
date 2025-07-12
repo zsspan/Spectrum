@@ -3,3 +3,6 @@ data/text_data/**
 data/.ipynb_checkpoints/*.ipynb
 data/csvs/*.csv
 */__pycache__/*
+
+data/modelsv2/nn.keras
+data/modelsv2/preprocessed_text.csv
