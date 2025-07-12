@@ -1,5 +1,13 @@
+# training data
 data/text_data/**
 !data/text_data/*
-data/.ipynb_checkpoints/*.ipynb
+
+# large processed text files
 data/csvs/*.csv
+
+# large v2 model
+data/models/v2/nn.keras
+
+# Python cache and Jupyter checkpoints
 */__pycache__/*
+data/.ipynb_checkpoints/*.ipynb
