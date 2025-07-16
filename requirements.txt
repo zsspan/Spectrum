@@ -2,12 +2,11 @@ Flask==3.1.0
 flask-cors==6.0.1
 Flask-Migrate==4.1.0
 Flask-SQLAlchemy==3.1.1
+pandas==2.2.3
+joblib==1.4.2
+scikit-learn==1.6.1
 spacy==3.8.3
-en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl#sha256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85
-psycopg2==2.9.10
+beautifulsoup4==4.13.3
 requests==2.32.3
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 gunicorn
-joblib
-pandas
-beautifulsoup4
-requests
