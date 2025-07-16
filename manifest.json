@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["src/popup/content.js"]
+      "js": ["src/content/content.js", "src/content/sidebar.js"]
     }
   ]
 }

@@ -42,8 +42,8 @@ predictButton.addEventListener("click", () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const currentTab = tabs[0];
     const url = currentTab.url;
-
-    fetch(`${API_BASE_URL}/current-article`, {
+    console.log("Making prediction for URL:", url);
+    fetch(`${API_BASE_URL}/article-parse`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,17 +57,31 @@ predictButton.addEventListener("click", () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data.prediction);
+        console.log("Prediction data received:", data);
+        console.log("pred", data.prediction);
+        console.log("after");
         // console.log(data.top_words);
 
-        const savedState = localStorage.getItem("highlight-checkbox") === "true";
+        const savedState =
+          localStorage.getItem("highlight-checkbox") === "true";
         if (savedState) {
           // highlightWords(data.top_words);
-          chrome.scripting.executeScript({
-            target: { tabId: currentTab.id },
-            func: highlightWords,
-            args: [data.top_words],
-          });
+
+          // inject content script to highlight words
+          chrome.scripting
+            .executeScript({
+              target: { tabId: currentTab.id },
+              files: ["src/content/content.js"],
+            })
+            .then(() => {
+              chrome.scripting.executeScript({
+                target: { tabId: currentTab.id },
+                func: (words) => {
+                  highlightWords(words);
+                },
+                args: [data.top_words],
+              });
+            });
         }
 
         prediction.textContent = data.prediction;

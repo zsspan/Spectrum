@@ -1,11 +1,11 @@
-console.log("Content script is running");
+console.log("Spectrum console script is running");
 
 function highlightWords(words) {
   // need to put function inside because execute script only accepts one function arg
   function getArticleElement() {
     let article = document.querySelector("article");
     if (article) {
-      console.log("method 1: Found <article> element");
+      // console.log("method 1: Found <article> element");
       return article;
     }
 
@@ -20,7 +20,7 @@ function highlightWords(words) {
     for (let className of commonClasses) {
       let div = document.querySelector(`div.${className}`);
       if (div) {
-        console.log(`method 2: Found div with class "${className}"`);
+        // console.log(`method 2: Found div with class "${className}"`);
         return div;
       }
     }
@@ -35,11 +35,11 @@ function highlightWords(words) {
     );
 
     if (largestDiv) {
-      console.log("method 3: Found largest <div> by text length");
+      // console.log("method 3: Found largest <div> by text length");
       return largestDiv;
     }
 
-    console.log("no suitable article content found.");
+    console.log("No suitable article content found.");
     return null;
   }
 
@@ -78,7 +78,7 @@ function highlightWords(words) {
       let match;
 
       if (regex.test(currentText)) {
-        console.log(`Found "${word}" in: "${currentText}"`);
+        // console.log(`Found "${word}" in: "${currentText}"`);
         regex.lastIndex = 0;
 
         let newFragment = document.createDocumentFragment();
