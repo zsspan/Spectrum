@@ -47,8 +47,8 @@ def article_content():
     prediction, top_words = get_analysis_results(article_body)
     prediction = prediction.capitalize()
 
-    print("top words: ", top_words)
-    print("predicted: ", prediction)
+    # print("top words: ", top_words)
+    # print("predicted: ", prediction)
     return jsonify({'prediction': prediction, 'top_words': top_words})
 
 

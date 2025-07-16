@@ -10,8 +10,8 @@ nlp = spacy.load("en_core_web_sm")
 nlp.max_length = 1500000
 
 # load the logistic regression model and trained vectorizer
-model = joblib.load("data/joblib/large_data_log.joblib")
-vectorizer = joblib.load("data/joblib/vectorizer.joblib")
+model = joblib.load("data/models/v2/large_data_log.joblib")
+vectorizer = joblib.load("data/models/v2/vectorizer.joblib")
 
 
 # tokenize and lemmatize the given text
