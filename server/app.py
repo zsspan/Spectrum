@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from article_classify import get_analysis_results
-from article_parse import get_article_body, get_soup_object
 from urllib.parse import urlparse
+from .article_classify import get_analysis_results
+from .article_parse import get_article_body, get_soup_object
 
 
 app = Flask(__name__)
