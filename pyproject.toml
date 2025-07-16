@@ -1,0 +1,7 @@
+[tool.poetry]
+name = "spectrum"
+version = "0.1.0"
+authors = ["Zohair Syed"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
