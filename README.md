@@ -4,7 +4,7 @@ Spectrum is a Chrome Extension that helps users understand the political standin
 
 Stay informed and understand the media landscape better with quick, reliable insights by using Spectrum today!
 Visit the [GitHub Pages](https://zsspan.github.io/Spectrum/). 
-Note Spectrum is currently awaiting aproval for the Chrome Web Store!
+Note: Spectrum is currently awaiting aproval for the Chrome Web Store!
 
 <div style="display: flex; gap: 10px;">
   <img src="./.pic/spectrum_right.png" alt="Spectrum Right" width="250"/>
