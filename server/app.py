@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from urllib.parse import urlparse
+
+from httpcore import Response
 from .article_classify import get_analysis_results
 from .article_parse import get_article_body, get_soup_object
 
@@ -52,9 +54,9 @@ def article_content():
 
 
 # add status check endpoint
-@app.route('/health')
-def health_check():
-    return "OK", 200
+@app.route('/ping')
+def ping():
+    return Response("1", status=200, content_type="text/plain")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
