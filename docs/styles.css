@@ -104,6 +104,16 @@ footer {
     font-size: 0.9rem;
 }
 
+.highlight {
+    font-weight: bold;
+    color: #0056b3;
+    background-color: #e0f0ff;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+
 @media (max-width: 600px) {
     .navbar .container {
         flex-wrap: wrap;
