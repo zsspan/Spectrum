@@ -37,18 +37,19 @@ This repo is split into `docs`, `data`, `server`, and `src`.
 Getting Started
 ---------------
 
-1. Clone the repo:
+1. Clone the repo or download the latest release
 
    ```git clone https://github.com/yourusername/spectrum.git```
+   ```https://github.com/zsspan/Spectrum/releases/download/v1.0/spectrum_cws.zip```
 
-2. Load the extension:
+3. Load the extension:
 
    - Open chrome://extensions/
    - Enable Developer Mode
    - Click "Load Unpacked"
    - Select the `src/` directory
 
-3. Run the backend (Flask):
+4. Run the backend (Flask):
    - You can opt to run the backend locally, but it is already hosted using Render!
 
 
