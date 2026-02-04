@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://spectrum-mwy3.onrender.com"; // use Render hosting, switch to EC2 later
+const API_BASE_URL = "http://localhost:50005";
 
 const articlePlaceholder = document.getElementById("article-placeholder");
 const publisherPlaceholder = document.getElementById("publisher-placeholder");
@@ -8,12 +8,14 @@ const predictButton = document.getElementById("predict-button");
 const highlightButton = document.getElementById("highlight-button");
 
 const prediction = document.getElementById("prediction");
+
 function analyzeCurrentTab() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const currentTab = tabs[0];
     const url = currentTab.url;
 
-    fetch(`${API_BASE_URL}/current-article`, {
+    // make API call to receive article name and publisher
+    fetch(`${API_BASE_URL}/article-metadata`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +45,9 @@ predictButton.addEventListener("click", () => {
     const currentTab = tabs[0];
     const url = currentTab.url;
     console.log("Making prediction for URL:", url);
-    fetch(`${API_BASE_URL}/article-parse`, {
+
+    // make API call to receive prediction, top words
+    fetch(`${API_BASE_URL}/article-analyze`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,8 +87,8 @@ predictButton.addEventListener("click", () => {
               });
             });
         }
-
-        prediction.textContent = data.prediction;
+        const capitalize = s => s.replace(/^./, char => char.toUpperCase());
+        prediction.textContent = capitalize(data.prediction);
         notatePrediction();
       })
       .catch((error) => {

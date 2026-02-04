@@ -2,15 +2,15 @@ from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
 from urllib.parse import urlparse
 
-from .article_classify import get_analysis_results
-from .article_parse import get_article_body, get_soup_object
+from article_classify import get_analysis_results
+from article_parse import get_article_body, get_soup_object
 
 app = Flask(__name__)
 CORS(app)
 
 
-# using the URL provided in the request, the function extracts the article name and publisher name
-@app.route("/current-article", methods=["POST"])
+# using the URL provided in the request, the function returns the article name and publisher name
+@app.route("/article-metadata", methods=["POST"])
 def current_article():
     data = request.get_json()
     url = data.get("url")
@@ -34,21 +34,17 @@ def current_article():
     return jsonify({"article_name": article_name, 'publisher': publisher})
 
 
-# article-parse endpoint takes the URL of an article and categorizes political bias of the article
-@app.route("/article-parse", methods=["POST"])
-def article_content():
+# using the URL provided in the request, the function returns the bias prediction and the top related words
+@app.route("/article-analyze", methods=["POST"])
+def article_analyze():
     data = request.get_json()
     url = data.get("url")
     print("url: ", url)
 
     article_body = get_article_body(url)
-    # prediction = predict(article_body).capitalize()
 
     prediction, top_words = get_analysis_results(article_body)
-    prediction = prediction.capitalize()
 
-    # print("top words: ", top_words)
-    # print("predicted: ", prediction)
     return jsonify({'prediction': prediction, 'top_words': top_words})
 
 
