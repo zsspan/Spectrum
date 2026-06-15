@@ -11,7 +11,7 @@ CORS(app)
 
 # using the URL provided in the request, the function returns the article name and publisher name
 @app.route("/article-metadata", methods=["POST"])
-def current_article():
+def article_metadata():
     data = request.get_json()
     url = data.get("url")
 

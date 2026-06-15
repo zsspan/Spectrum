@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:50005";
+const API_BASE_URL = "http://localhost:5000";
 
 const articlePlaceholder = document.getElementById("article-placeholder");
 const publisherPlaceholder = document.getElementById("publisher-placeholder");
